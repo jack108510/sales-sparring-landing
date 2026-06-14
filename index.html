@@ -137,6 +137,72 @@ img { max-width: 100%; display: block; }
 .hero-metric-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
 @media (max-width: 600px) { .hero-card-metrics { grid-template-columns: 1fr; } }
 
+/* ================================ HERO PREVIEW CARDS ================================ */
+.hero-previews {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-top: 24px; max-width: 900px; margin-left: auto; margin-right: auto;
+}
+@media (max-width: 700px) { .hero-previews { grid-template-columns: 1fr; } }
+.preview-card { border-radius: 14px; overflow: hidden; }
+
+/* Scenario Card */
+.scenario-card {
+  background: white; padding: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+}
+.scenario-tag {
+  display: inline-block; font-size: 11px; font-weight: 700; color: #6b7280;
+  background: #f3f4f6; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px;
+}
+.scenario-title { font-size: 18px; font-weight: 700; color: #0a1628; margin-bottom: 16px; }
+.scenario-buyer { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.buyer-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, #0066ff, #0047cc); flex-shrink: 0;
+}
+.scenario-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.scenario-box {
+  background: #f9fafb; border-radius: 8px; padding: 10px 12px; border: 1px solid #e5e7eb;
+}
+.scenario-box-label { font-size: 11px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.scenario-box-value { font-size: 14px; font-weight: 600; color: #1f2937; margin-top: 2px; }
+.scenario-box-price .scenario-box-value { color: #16a34a; }
+.scenario-goal {
+  background: rgba(0,102,255,0.06); border: 1px solid rgba(0,102,255,0.12);
+  border-radius: 8px; padding: 10px 12px; margin-bottom: 14px;
+}
+.scenario-features { list-style: none; padding: 0; margin: 0 0 18px 0; }
+.scenario-features li {
+  font-size: 13px; color: #4b5563; padding: 3px 0; line-height: 1.5;
+}
+.scenario-btn {
+  width: 100%; padding: 10px; background: #0066ff; color: white; border: none;
+  border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Scorecard Card */
+.scorecard-card {
+  background: #0f172a; padding: 24px;
+}
+.scorecard-grade-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.scorecard-grade-circle {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 800; color: white;
+}
+.scorecard-score { font-size: 28px; font-weight: 800; color: white; letter-spacing: -1px; }
+.scorecard-score span { font-size: 16px; color: rgba(255,255,255,0.4); font-weight: 500; }
+.scorecard-bars { display: flex; flex-direction: column; gap: 10px; }
+.scorecard-bar-item { display: flex; align-items: center; gap: 10px; }
+.scorecard-bar-label { font-size: 12px; color: rgba(255,255,255,0.6); width: 70px; flex-shrink: 0; font-weight: 500; }
+.scorecard-bar-track {
+  flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;
+}
+.scorecard-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+.scorecard-bar-num { font-size: 12px; color: rgba(255,255,255,0.5); width: 30px; text-align: right; flex-shrink: 0; }
+
 /* ================================ PROBLEM SECTION ================================ */
 .problem { background: var(--navy); padding: 120px 0; position: relative; overflow: hidden; }
 .problem::before {
@@ -303,26 +369,78 @@ img { max-width: 100%; display: block; }
     </div>
 
     <div class="hero-visual fade-in fade-in-delay-3">
-      <div class="hero-card">
-        <div class="hero-card-header">
-          <div class="hero-card-avatar"></div>
-          <div class="hero-card-info">
-            <h4>Live Call Simulation — Riverside Plumbing Co.</h4>
-            <span>AI Buyer · Difficulty: Medium</span>
+      <img src="app-screenshot.png" alt="Sales Sparring app" style="width:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);border:1px solid #e5e7eb">
+      <div class="hero-previews">
+        <!-- Preview Card 1: Scenario Detail -->
+        <div class="preview-card scenario-card">
+          <div class="scenario-tag">Cold Call</div>
+          <h3 class="scenario-title">Pipeline CRM</h3>
+          <div class="scenario-buyer">
+            <div class="buyer-avatar"></div>
+            <div>
+              <div style="font-weight:600;font-size:14px;color:#1f2937">Dave Murray</div>
+              <div style="font-size:12px;color:#9ca3af">Dave's Plumbing &amp; Heating</div>
+            </div>
           </div>
+          <div class="scenario-row">
+            <div class="scenario-box">
+              <div class="scenario-box-label">Product</div>
+              <div class="scenario-box-value">Pipeline CRM</div>
+            </div>
+            <div class="scenario-box scenario-box-price">
+              <div class="scenario-box-label">Price</div>
+              <div class="scenario-box-value">$29/month</div>
+            </div>
+          </div>
+          <div class="scenario-goal">
+            <div style="font-size:11px;font-weight:600;color:#0066ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Your Goal</div>
+            <div style="font-size:13px;color:#374151">Book a 15-minute demo with the owner</div>
+          </div>
+          <ul class="scenario-features">
+            <li>+ Automated follow-up sequences</li>
+            <li>+ Real-time deal pipeline tracking</li>
+            <li>+ Mobile app for on-the-go reps</li>
+          </ul>
+          <button class="scenario-btn">Start Call</button>
         </div>
-        <div class="hero-card-metrics">
-          <div class="hero-metric">
-            <div class="hero-metric-value">87</div>
-            <div class="hero-metric-label">Overall Score</div>
+
+        <!-- Preview Card 2: Scorecard -->
+        <div class="preview-card scorecard-card">
+          <div class="scorecard-grade-row">
+            <div class="scorecard-grade-circle">B</div>
+            <div class="scorecard-score">82<span>/100</span></div>
           </div>
-          <div class="hero-metric">
-            <div class="hero-metric-value">4:32</div>
-            <div class="hero-metric-label">Call Duration</div>
-          </div>
-          <div class="hero-metric">
-            <div class="hero-metric-value">A-</div>
-            <div class="hero-metric-label">Grade</div>
+          <div class="scorecard-bars">
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Opening</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:80%;background:#22c55e"></div></div>
+              <span class="scorecard-bar-num">4/5</span>
+            </div>
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Discovery</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:60%;background:#eab308"></div></div>
+              <span class="scorecard-bar-num">3/5</span>
+            </div>
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Objections</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:80%;background:#22c55e"></div></div>
+              <span class="scorecard-bar-num">4/5</span>
+            </div>
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Value</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:60%;background:#eab308"></div></div>
+              <span class="scorecard-bar-num">3/5</span>
+            </div>
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Closing</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:40%;background:#ef4444"></div></div>
+              <span class="scorecard-bar-num">2/5</span>
+            </div>
+            <div class="scorecard-bar-item">
+              <span class="scorecard-bar-label">Rules</span>
+              <div class="scorecard-bar-track"><div class="scorecard-bar-fill" style="width:100%;background:#22c55e"></div></div>
+              <span class="scorecard-bar-num">5/5</span>
+            </div>
           </div>
         </div>
       </div>
